@@ -31,7 +31,7 @@ header .brand {
   font-weight: 400; /
   letter-spacing: 3px; 
   text-transform: uppercase;
-  font-family: "Baskerville Old Face", "Baskerville", "Times New Roman", serif;
+  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   color: var(--text-color, #0b0b0b);
   margin: 4px 0 10px 0;
 }
@@ -114,7 +114,7 @@ nav a:hover {
   --tile-gap:18px;
   --max-width:1200px; /* AQUI: página mais ampla (antes 1200px) */
   --page-padding:36px;
-  --header-font:"Baskerville Old Face","Baskerville","Times New Roman",serif;
+  --header-font:"Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   --body-font:"Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   --text-color:#0b0b0b;
   --muted:#666;
@@ -864,7 +864,7 @@ a{ color:inherit }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: Cochin, "Bodoni MT", Didot, serif;
+  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   font-size: 30px;
   color: #000;
   text-align: center;
@@ -901,7 +901,7 @@ header {
 }
 
 .summary-title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   font-size: 40px;
   font-weight: 400;
   letter-spacing: 0;
@@ -914,7 +914,7 @@ header {
 }
 
 .summary-arrow {
-  font-family: 'Playfair Display', serif;
+  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   font-size: 34px;
   line-height: 1;
   color: #000;
@@ -931,7 +931,7 @@ header {
 }
 
 .summary-column h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1138,7 +1138,7 @@ header {
   margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid rgba(0,0,0,0.25);
-  font-family: "Monotype OS MT Std","Arial","Helvetica",sans-serif;
+  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   font-size: 16px;
 }
 
