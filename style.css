@@ -562,6 +562,7 @@ a{ color:inherit }
 
 .product-header {
   padding: 0 20px 12px 20px;
+  text-align: center;
 }
 
 .product-header h1 {
@@ -576,6 +577,45 @@ a{ color:inherit }
 
 .product-header .product-buy {
   margin-bottom: 0;
+}
+
+.product-text-block {
+  padding: 0 20px 12px 20px;
+}
+
+.product-text-block .product-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.product-text-block .edition-info-right {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.product-text-block .edition-info-right a {
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+  margin-left: 20px;
+  padding: 6px 12px;
+  border: 1px solid #000;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.product-text-block .edition-info-right a:first-child {
+  margin-left: 0;
+}
+
+.product-text-block .edition-info-right a:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .product-info h1 {
