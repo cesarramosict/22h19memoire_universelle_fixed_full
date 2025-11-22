@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 });
-
-
-
 // === Cookie banner RGPD ===
 (function() {
   var ACCEPT_KEY = 'mu_cookies_accepted';
