@@ -697,11 +697,11 @@ a{ color:inherit }
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
 /* === HOVER TITLE NAS CAIXAS DO GRID (V1–V6) === */
 
 .tile {
   position: relative;
-  min-height: 320px !important;
 }
 
 .tile-title {
@@ -873,9 +873,8 @@ header {
 /* ======== QUADRO RETANGULAR PARA TODAS AS EDITIONS 1–6 ======== */
 
 .grid {
-  display: ;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  gap: var(--tile-gap, 5px);
 }
 
 .cover img {
@@ -926,8 +925,10 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
-  margin: 0 !important;
+  margin: 24px auto 32px; /* mesmo espaçamento vertical do home, centralizado */
   padding: 0 !important;
+  width: 100%;
+  max-width: var(--max-width, 1200px); /* garante mesma largura máxima do layout */
 }
 
 /* Each tile becomes a wide rectangular "spread" */
@@ -1183,19 +1184,21 @@ header {
 .page-home .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 5px !important;
-  margin-top: 24px;
-  margin-bottom: 32px;
+  gap: var(--tile-gap, 18px);
+  margin: 24px auto 32px; /* vertical spacing and centered */
+  width: 100%;
+  max-width: var(--max-width, 1200px);
+  padding: 0 12px; /* small inner padding for very narrow screens */
 }
 /* === HOME — quadro ajustado === */
 /* HOME — quadro reduzido e imagem pequena */
 .page-home .tile {
-    background: #676363;      /* mesma cor da shop */
-    height: 120px !important;          /* altura perfeita */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  background: #676363;      /* mesma cor da shop */
+  height: 180px !important;          /* altura ajustada para 180px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .page-home .cover {
@@ -1234,5 +1237,149 @@ header {
 /* keep spacing below image consistent */
 .shop-info {
   margin-top: 8px;
+}
+
+/* === UNIFICAR GRID: HOME e EDITIONS === */
+/* Objetivo: mesma estrutura, quadros com altura 140px, imagens pequenas e centralizadas */
+.page-home .grid,
+.page-editions .grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--tile-gap, 18px); /* espaço uniforme entre quadros */
+  margin: 24px auto 32px; /* vertical spacing and centered */
+  width: 100%;
+  max-width: var(--max-width, 1200px); /* same content width as layout */
+  padding: 0 12px; /* small inner padding for very narrow screens */
+}
+
+.page-home .tile,
+.page-editions .tile {
+  min-height: 180px !important;
+  height: 180px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #676363;
+  overflow: hidden;
+  border: none;
+  box-shadow: none;
+}
+
+.page-home .cover,
+.page-editions .cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.page-home .cover img,
+.page-editions .cover img {
+  /* imagem central um pouco maior para melhor preenchimento do tile de 180px */
+  max-width: 160px !important;
+  max-height: 130px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Responsividade: 3 cols desktop, 2 cols tablet, 1 col mobile */
+@media (max-width: 1100px) {
+  .page-home .grid,
+  .page-editions .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .page-home .tile,
+  .page-editions .tile {
+    min-height: 160px !important;
+    height: 160px !important;
+  }
+  .page-home .cover img,
+  .page-editions .cover img {
+    max-width: 140px !important;
+    max-height: 110px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-home .grid,
+  .page-editions .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 8px;
+  }
+  .page-home .tile,
+  .page-editions .tile {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 18px 0;
+    align-items: flex-start;
+  }
+  .page-home .cover img,
+  .page-editions .cover img {
+    max-width: 260px !important;
+    max-height: 200px !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  .page-home .tile .tile-title,
+  .page-editions .tile .tile-title {
+    position: static;
+    transform: none;
+    opacity: 1;
+    margin-top: 10px;
+  }
+}
+
+/* Garantir que títulos em hover não forcem altura maior nestas páginas */
+.page-home .tile .tile-title,
+.page-editions .tile .tile-title {
+  font-size: 18px;
+}
+
+/* === FORÇAR EDITIONS IGUAL AO HOME (SOBRESCREVE REGRAS ANTERIORES) === */
+/* Uso de !important em propriedades-chave para garantir igualdade absoluta */
+.page-editions .grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 5px !important;
+  margin: 24px auto 32px !important; /* mesmo espaçamento vertical do home, centralizado */
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: var(--max-width, 1200px) !important; /* mesma largura máxima do layout */
+}
+
+.page-editions .tile {
+  min-height: 180px !important;
+  height: 180px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #676363 !important;
+  overflow: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.page-editions .cover {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.page-editions .cover img {
+  max-width: 120px !important;
+  max-height: 100px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
 }
 
