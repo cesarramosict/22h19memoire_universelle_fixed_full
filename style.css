@@ -111,7 +111,8 @@ nav a:hover {
 :root{
   --page-bg:#ffffff;
   --grid-bg:#8f8f8f;
-  --tile-gap:1px;
+  --tile-gap:18px;
+  --home-tile-gap:21px;
   --max-width:1200px; /* AQUI: página mais ampla (antes 1200px) */
   --page-padding:36px;
   --header-font:"Plantin MT Pro","Plantin","Times New Roman","Times",serif;
@@ -1105,7 +1106,7 @@ header {
 .page-editions .tile {
   background: #676363;
   min-height: 0;
-  aspect-ratio: 1 / 1; /* wide rectangle like a double-page */
+  aspect-ratio: 2 / 1; /* wide rectangle like a double-page */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1121,12 +1122,15 @@ header {
   box-shadow: none;
   transform: none;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-editions .cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
   display: block;
 }
 
@@ -1369,7 +1373,7 @@ header {
 .page-home .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--tile-gap, 18px);
+  gap: var(--home-tile-gap, 24px);
   margin: 24px auto 32px; /* vertical spacing and centered */
   width: 100%;
   max-width: var(--max-width, 1200px);
@@ -1379,7 +1383,7 @@ header {
 /* HOME — quadro reduzido e imagem pequena */
 .page-home .tile {
   background: #676363;      /* mesma cor da shop */
-  height: 180px !important;          /* altura ajustada para 180px */
+  aspect-ratio: 2/1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1393,8 +1397,8 @@ header {
 }
 
 .page-home .cover img {
-    width: 200px;              /* imagem NÃO deve ocupar a largura toda */
-    height: 70%;              /* tamanho pequeno igual no shop */
+    width: 95%;              /* preenche mais o espaço, remove borda */
+    height: 95%;             /* remove espaço em branco abaixo */
     object-fit: contain;      /* NÃO corta */
     display: block;
 }
