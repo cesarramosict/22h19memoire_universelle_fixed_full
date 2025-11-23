@@ -10,6 +10,53 @@ document.addEventListener('DOMContentLoaded', function(){
       if(e.key === 'Enter') tile.click();
     });
   });
+
+  // edition page: make product-thumbs clickable to swap main image
+  var thumbsContainer = document.querySelector('.product-thumbs');
+  if (thumbsContainer) {
+    var bigImg = document.querySelector('.product-image-big img');
+    var thumbs = thumbsContainer.querySelectorAll('img');
+    thumbs.forEach(function(thumb){
+      thumb.style.cursor = 'pointer';
+      thumb.addEventListener('click', function(){
+        if(!bigImg) return;
+        // swap src — if thumbnails are smaller versions, consider data-large attribute
+        var newSrc = thumb.getAttribute('data-large') || thumb.src;
+        bigImg.src = newSrc;
+        // active class
+        thumbs.forEach(t=>t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+      thumb.addEventListener('keypress', function(e){ if(e.key==='Enter') thumb.click(); });
+    });
+    // set first thumb active by default
+    if(thumbs.length > 0) {
+      thumbs.forEach(t=>t.classList.remove('active'));
+      thumbs[0].classList.add('active');
+    }
+  }
+
+  // shop page: make shop-thumbs clickable to swap main image
+  document.querySelectorAll('.shop-thumbs').forEach(function(shopThumbsContainer){
+    var shopBigImg = shopThumbsContainer.parentElement.querySelector('.shop-image-big img');
+    if(!shopBigImg) return;
+    var shopThumbs = shopThumbsContainer.querySelectorAll('img');
+    shopThumbs.forEach(function(thumb){
+      thumb.style.cursor = 'pointer';
+      thumb.addEventListener('click', function(){
+        var newSrc = thumb.getAttribute('data-large') || thumb.src;
+        shopBigImg.src = newSrc;
+        shopThumbs.forEach(t=>t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+      thumb.addEventListener('keypress', function(e){ if(e.key==='Enter') thumb.click(); });
+    });
+    // set first thumb active by default
+    if(shopThumbs.length > 0) {
+      shopThumbs.forEach(t=>t.classList.remove('active'));
+      shopThumbs[0].classList.add('active');
+    }
+  });
 });
 // === Cookie banner RGPD ===
 (function() {
