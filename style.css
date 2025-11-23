@@ -8,7 +8,7 @@ body {
   padding: 0 !important;
   display:flex;  
   justify-content:center;
-  font-family: var(--body-font);
+  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   background-color: #fff;
   color: #222;
   font-size: 16px;
@@ -31,7 +31,7 @@ header .brand {
   font-weight: 400; /
   letter-spacing: 3px; 
   text-transform: uppercase;
-  font-family: "Baskerville Old Face", "Baskerville", "Times New Roman", serif;
+  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   color: var(--text-color, #0b0b0b);
   margin: 4px 0 10px 0;
 }
@@ -111,11 +111,11 @@ nav a:hover {
 :root{
   --page-bg:#ffffff;
   --grid-bg:#8f8f8f;
-  --tile-gap:18px;
+  --tile-gap:1px;
   --max-width:1200px; /* AQUI: página mais ampla (antes 1200px) */
   --page-padding:36px;
-  --header-font:"Baskerville Old Face","Baskerville","Times New Roman",serif;
-  --body-font:"Plantin MT Pro Bold","Plantin MT Pro","Plantin","Times New Roman","Times",serif;
+  --header-font:"Plantin MT Pro","Plantin","Times New Roman","Times",serif;
+  --body-font:"Plantin MT Pro","Plantin","Times New Roman","Times",serif;
   --text-color:#0b0b0b;
   --muted:#666;
   --shadow:8px 8px 0 rgba(0,0,0,0.12);
@@ -901,7 +901,7 @@ header {
 }
 
 .summary-title {
-  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
+  font-family: 'Playfair Display', serif;
   font-size: 40px;
   font-weight: 400;
   letter-spacing: 0;
@@ -914,7 +914,7 @@ header {
 }
 
 .summary-arrow {
-  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
+  font-family: 'Playfair Display', serif;
   font-size: 34px;
   line-height: 1;
   color: #000;
@@ -931,7 +931,7 @@ header {
 }
 
 .summary-column h3 {
-  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
+  font-family: 'Playfair Display', serif;
   font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1138,7 +1138,7 @@ header {
   margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid rgba(0,0,0,0.25);
-  font-family: "Plantin MT Pro","Plantin","Times New Roman","Times",serif;
+  font-family: "Monotype OS MT Std","Arial","Helvetica",sans-serif;
   font-size: 16px;
 }
 
@@ -1568,137 +1568,3 @@ header {
   margin: 0 auto !important;
 }
 
-/* === SHOP PAGE (New layout) === */
-
-.shop-page {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 40px auto;
-  padding: 0 var(--page-padding);
-}
-
-.shop-page h1 {
-  font-family: var(--header-font);
-  font-size: 32px;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.shop-product {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 60px;
-  align-items: start;
-}
-
-.shop-image-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.shop-image-big {
-  background: var(--grid-bg, #8f8f8f);
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 400px;
-}
-
-.shop-image-big img {
-  max-width: 100%;
-  max-height: 360px;
-  object-fit: contain;
-}
-
-.shop-thumbs {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  background: var(--grid-bg, #8f8f8f);
-  padding: 12px;
-}
-
-.shop-thumbs img {
-  width: 100%;
-  height: auto;
-  opacity: 0.7;
-  transition: opacity 0.2s, transform 0.2s;
-  cursor: pointer;
-}
-
-.shop-thumbs img:hover,
-.shop-thumbs img.active {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.shop-info {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.shop-info h2 {
-  font-family: var(--header-font);
-  font-size: 24px;
-  margin: 0;
-}
-
-.shop-price {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.shop-buy {
-  display: inline-block;
-  width: fit-content;
-  padding: 8px 16px;
-  border: 1px solid #000;
-  text-decoration: none;
-  color: #000;
-  font-weight: 600;
-  font-size: 14px;
-  text-transform: uppercase;
-  transition: all 0.2s ease;
-}
-
-.shop-buy:hover {
-  background-color: #000;
-  color: #fff;
-}
-
-.shop-description {
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 8px 0 0 0;
-  color: #555;
-}
-
-@media (max-width: 1000px) {
-  .shop-product {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 700px) {
-  .shop-page {
-    padding: 0 16px;
-  }
-  
-  .shop-product {
-    gap: 24px;
-    margin-bottom: 40px;
-  }
-  
-  .shop-image-big {
-    min-height: 300px;
-  }
-  
-  .shop-thumbs {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
