@@ -658,6 +658,8 @@ a{ color:inherit }
 .product-thumbs img {
   width: 100%;
   height: auto;
+  max-height: 80%;
+  object-fit: contain;
 }
 
 /* ABOUT layout */
@@ -1025,6 +1027,8 @@ header {
   height: auto;
   opacity: 0.9;
   transition: opacity .18s, transform .18s;
+  max-height: 80%;
+  object-fit: contain;
 }
 
 .product-thumbs img.active {
@@ -1128,10 +1132,13 @@ header {
 }
 
 .page-editions .cover img {
-  width: 90%;
-  height: 90%;
+  width: 88%;
+  height: 88%;
   object-fit: contain;
   display: block;
+  border: 8px solid #ffffff; /* thicker white border around the image */
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.12); /* subtle drop shadow like the example */
+  margin: 0 auto; /* ensure centered */
 }
 
 /* Edition meta header below the grid */
@@ -1388,6 +1395,170 @@ header {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border: none; /* remove lateral frame on Home */
+  box-shadow: none;
+}
+
+.page-home .tile:focus-within, .page-home .tile:hover {
+  transform: none !important; /* disable hover raise on Home */
+  box-shadow: none !important;
+}
+
+/* Force remove all tile borders on Home to prevent conflicts */
+.page-home .tile {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* === SHOP PRODUCT PAGES (shop-1 through shop-6) — same grid layout as Home/Editions === */
+.product-page .product-image-big {
+  aspect-ratio: 2 / 1;
+  background: #676363;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.product-page .product-image-big img {
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  display: block;
+  border: none;
+  box-shadow: none;
+  margin: 0 auto;
+}
+
+/* === Edition-1 specific tweaks === */
+.edition-single .product-image-big {
+  justify-content: center !important; /* ensure image centered */
+}
+.edition-single .product-image-big img {
+  width: 78% !important; /* slightly smaller for visual balance */
+  height: auto !important;
+}
+.edition-single .product-header h1 {
+  text-align: left !important; /* title aligned to left */
+}
+
+/* Remove gray background and make text sit below the main image for edition pages */
+.edition-single .product-main {
+  display: block !important;
+}
+.edition-single .product-left {
+  background: transparent !important;
+  padding: 0 !important;
+}
+.edition-single .product-image-big {
+  background: transparent !important;
+}
+.edition-single .product-thumbs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+.edition-single .product-text-block {
+  margin-top: 18px !important;
+}
+.edition-single .product-desc {
+  text-align: justify !important;
+}
+
+/* === SHOP PRODUCT PAGES (shop-1 to shop-6) LAYOUT === */
+.product-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.product-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.product-thumbs img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s;
+  max-height: 80%;
+}
+
+.product-thumbs img:hover {
+  border-color: #666;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.product-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  font-family: var(--header-font);
+  line-height: 1.2;
+}
+
+.product-price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0b0b0b;
+}
+
+.product-buy {
+  align-self: flex-start;
+  padding: 12px 32px;
+  background: #0b0b0b;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.product-buy:hover {
+  background: #333;
+}
+
+.product-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.product-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  text-align: justify;
+}
+
+/* Hide prev/next issue buttons on shop pages */
+.edition-info-right {
+  display: none;
 }
 
 .page-home .cover {
@@ -1397,10 +1568,13 @@ header {
 }
 
 .page-home .cover img {
-    width: 95%;              /* preenche mais o espaço, remove borda */
-    height: 95%;             /* remove espaço em branco abaixo */
-    object-fit: contain;      /* NÃO corta */
-    display: block;
+  width: 88%;              /* match Éditions */
+  height: 88%;             /* match Éditions */
+  object-fit: contain;      /* NÃO corta */
+  display: block;
+  border: 8px solid #ffffff; /* same border as Éditions */
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.12);
+  margin: 0 auto;
 }
 
 
