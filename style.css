@@ -14,6 +14,7 @@ body {
   font-size: 16px;
   letter-spacing: -0.01em;
   line-height: 1.4;
+  zoom: var(--site-scale, 1.25);
 }
 
 /* === HEADER (VERSÃO ORIGINAL + TIPOGRAFIA AJUSTADA) === */
@@ -1745,4 +1746,3 @@ header {
   display: block !important;
   margin: 0 auto !important;
 }
-
