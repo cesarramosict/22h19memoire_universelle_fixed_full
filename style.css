@@ -1377,59 +1377,114 @@ header {
 }
 
 
-/* === HOME GRID (3x2) — layout fix === */
+/* === HOME GRID: padronizado com Editions === */
 .page-home .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--home-tile-gap, 24px);
-  margin: 24px auto 32px; /* vertical spacing and centered */
+  gap: var(--tile-gap, 18px);
+  margin: 24px auto 32px;
   width: 100%;
   max-width: var(--max-width, 1200px);
-  padding: 0 12px; /* small inner padding for very narrow screens */
+  padding: 0 12px;
 }
-/* === HOME — quadro ajustado === */
-/* HOME — quadro reduzido e imagem pequena */
 .page-home .tile {
-  background: #676363;      /* mesma cor da shop */
-  aspect-ratio: 2/1;
+  background: #676363;
+  min-height: 180px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: none; /* remove lateral frame on Home */
+  border: 1px solid rgba(255,255,255,0.08); /* borda cinza discreta como referência */
   box-shadow: none;
 }
-
 .page-home .tile:focus-within, .page-home .tile:hover {
-  transform: none !important; /* disable hover raise on Home */
+  transform: none !important;
   box-shadow: none !important;
 }
-
-/* Force remove all tile borders on Home to prevent conflicts */
-.page-home .tile {
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* === SHOP PRODUCT PAGES (shop-1 through shop-6) — same grid layout as Home/Editions === */
-.product-page .product-image-big {
-  aspect-ratio: 2 / 1;
-  background: #676363;
+.page-home .cover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.page-home .cover img {
+  max-width: 120px !important;
+  max-height: 100px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
 }
 
-.product-page .product-image-big img {
-  width: 88%;
-  height: 88%;
+/* === SHOP PRODUCT PAGES (shop-1 through shop-6) - clean frame, thumbs below === */
+.product-page:not(.edition-single) .product-main {
+  background: transparent;
+  padding: 0;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.product-page:not(.edition-single) .product-image-big {
+  background: #6f6f6f;
+  aspect-ratio: auto;
+  padding: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: visible;
+  height: auto;
+  width: 100%;
+}
+
+.product-page:not(.edition-single) .product-image-big img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   object-fit: contain;
   display: block;
   border: none;
   box-shadow: none;
   margin: 0 auto;
+}
+
+.product-page:not(.edition-single) .product-thumbs {
+  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.product-page:not(.edition-single) .product-thumbs img {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.product-page:not(.edition-single) .product-thumbs img:hover {
+  border: none;
+}
+
+.product-page:not(.edition-single) .product-info,
+.product-page:not(.edition-single) .product-header,
+.product-page:not(.edition-single) .product-text-block,
+.product-page:not(.edition-single) .product-desc {
+  text-align: left;
+}
+
+.product-page:not(.edition-single) .product-info {
+  align-self: flex-start;
+}
+
+@media (max-width: 900px) {
+  .product-page:not(.edition-single) .product-image-big img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* === Edition-1 specific tweaks === */
@@ -1625,7 +1680,7 @@ header {
   justify-content: center;
   background: #676363;
   overflow: hidden;
-  border: none;
+  border: 1px solid rgba(255,255,255,0.08); /* borda cinza discreta */
   box-shadow: none;
 }
 
@@ -1705,6 +1760,148 @@ header {
   font-size: 18px;
 }
 
+/* === Editions Base 2: full-width hero image === */
+.edition-2 .grid {
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+  margin: 0 auto 32px !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.edition-2 .tile {
+  height: auto !important;
+  min-height: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.edition-2 .cover {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+.edition-2 .cover img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* === Edition Base 1-1: centered hero, image +20% === */
+.edition-1-1 .product-main {
+  grid-template-columns: 1fr !important;
+  justify-items: center;
+  text-align: center;
+  gap: 24px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.edition-1-1 .product-image-big {
+  justify-content: center;
+  width: 100%;
+  padding: 36px 24px; /* extra height (~10%) for the frame */
+  max-width: var(--max-width, 1200px);
+}
+
+.edition-1-1 .product-image-big img {
+  width: 120%;
+  max-width: 120%;
+  height: auto;
+  object-fit: contain;
+  transform: translateZ(0);
+}
+
+.edition-1-1 .product-left {
+  width: 100%;
+  max-width: var(--max-width, 1200px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.edition-1-1 .product-info,
+.edition-1-1 .product-header,
+.edition-1-1 .product-text-block,
+.edition-1-1 .product-desc {
+  text-align: center;
+}
+
+.edition-1-1 .product-text-block {
+  max-width: var(--max-width, 1200px);
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.edition-1-1 .product-desc {
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-top: 8px;
+}
+
+.edition-1-1 .product-header {
+  width: 100%;
+  max-width: var(--max-width, 1200px);
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.edition-1-1 .product-header h1 {
+  font-size: clamp(32px, 3vw + 10px, 48px);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.edition-1-1 .wrap {
+  padding-bottom: 12px;
+}
+
+.edition-1-1 footer {
+  padding-top: 10px;
+}
+
+.edition-1-1 footer::after {
+  height: 0;
+}
+
+.edition-1-1 .edition-nav {
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 0 0 4px auto;
+}
+
+.edition-1-1 .edition-nav-btn {
+  padding: 8px 14px;
+  border: 1px solid #000;
+  text-decoration: none;
+  color: #000;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.edition-1-1 .edition-nav-btn:hover {
+  background: #000;
+  color: #fff;
+}
 /* === FORÇAR EDITIONS IGUAL AO HOME (SOBRESCREVE REGRAS ANTERIORES) === */
 /* Uso de !important em propriedades-chave para garantir igualdade absoluta */
 .page-editions .grid {

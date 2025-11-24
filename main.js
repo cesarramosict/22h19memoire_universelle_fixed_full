@@ -3,8 +3,13 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('.tile').forEach(tile=>{
     tile.addEventListener('click', ()=> {
       // if data-id present, go to edition detail
+      const targetUrl = tile.getAttribute('data-url');
       const id = tile.getAttribute('data-id');
-      if(id) window.location.href = 'edition-' + id + '.html';
+      if (targetUrl) {
+        window.location.href = targetUrl;
+      } else if(id) {
+        window.location.href = 'edition-' + id + '.html';
+      }
     });
     tile.addEventListener('keypress', (e)=>{
       if(e.key === 'Enter') tile.click();
