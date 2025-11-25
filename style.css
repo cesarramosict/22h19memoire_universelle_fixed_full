@@ -1276,6 +1276,11 @@ header {
   font-weight: 400;
   margin-bottom: 18px;
 }
+.contributors-title,
+.editions-contributors-title {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+}
 
 .contributors-list {
   font-size: 12px;
