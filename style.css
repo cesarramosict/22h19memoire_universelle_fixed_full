@@ -1799,7 +1799,7 @@ header {
   grid-template-columns: 1fr !important;
   justify-items: center;
   text-align: center;
-  gap: 24px;
+  gap: 12px;
   margin-bottom: 12px;
   width: 100%;
 }
@@ -1857,11 +1857,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 16px;
+  gap: 8px;
+  margin-top: 0;
+  padding: 0;
 }
 
 .edition-1-1 .product-header h1 {
-  font-size: clamp(32px, 3vw + 10px, 48px);
+  font-size: clamp(28px, 2.5vw + 8px, 40px); /* ~15% smaller */
   line-height: 1.1;
   margin: 0;
 }
@@ -1883,7 +1885,7 @@ header {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  margin: 0 0 4px auto;
+  margin: 0 0 0 auto;
 }
 
 .edition-1-1 .edition-nav-btn {
@@ -1942,4 +1944,330 @@ header {
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto !important;
+}
+
+/* === Padronizar grid Home e Editions === */
+.page-home .grid,
+.page-editions .grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 5px !important;
+  margin: 24px auto 32px !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: var(--max-width, 1200px) !important;
+}
+
+.page-home .tile,
+.page-editions .tile {
+  min-height: 180px !important;
+  height: 180px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #676363 !important;
+  overflow: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.page-home .cover,
+.page-editions .cover {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.page-home .cover img,
+.page-editions .cover img {
+  max-width: 120px !important;
+  max-height: 100px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Responsividade compartilhada */
+@media (max-width: 1100px) {
+  .page-home .grid,
+  .page-editions .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+  .page-home .tile,
+  .page-editions .tile {
+    min-height: 160px !important;
+    height: 160px !important;
+  }
+  .page-home .cover img,
+  .page-editions .cover img {
+    max-width: 140px !important;
+    max-height: 110px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-home .grid,
+  .page-editions .grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 0 8px !important;
+  }
+  .page-home .tile,
+  .page-editions .tile {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 18px 0 !important;
+    align-items: flex-start !important;
+  }
+  .page-home .cover img,
+  .page-editions .cover img {
+    max-width: 260px !important;
+    max-height: 200px !important;
+  }
+  .page-home .tile .tile-title,
+  .page-editions .tile .tile-title {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    margin-top: 10px !important;
+  }
+}
+
+/* === HOME GRID FIX: remove inner frame + restore hover lift === */
+.page-home .tile {
+  border: 0 !important;
+  box-shadow: none !important;
+  transition: transform .22s ease !important;
+}
+.page-home .tile:hover,
+.page-home .tile:focus-within {
+  transform: translateY(-6px) !important;
+  box-shadow: none !important;
+}
+.page-home .cover {
+  box-shadow: none !important;
+}
+
+/* === SHOP-1 layout: mirror reference spacing === */
+body.shop-1 .product-main {
+  grid-template-columns: 2fr 1.05fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+body.shop-1 .product-left {
+  align-items: center;
+}
+body.shop-1 .product-image-big {
+  padding: 32px 20px;
+}
+body.shop-1 .product-image-big img {
+  width: 70% !important;
+  max-width: 70% !important;
+  height: auto;
+  margin: 0 auto;
+}
+body.shop-1 .product-thumbs {
+  padding: 10px 0 0;
+  gap: 10px;
+}
+body.shop-1 .product-thumbs img {
+  max-width: 70% !important; /* ~30% smaller */
+  margin: 0 auto;
+}
+body.shop-1 .product-info {
+  align-self: flex-start;
+  text-align: left;
+  gap: 18px;
+  padding-top: 8px;
+  max-width: 520px;
+}
+body.shop-1 .product-header {
+  align-items: flex-start;
+  gap: 10px;
+}
+body.shop-1 .product-header h1 {
+  font-size: 32px;
+  margin: 0;
+  text-align: left;
+}
+body.shop-1 .product-price {
+  font-size: 32px;
+  margin: 0 0 6px 0;
+}
+body.shop-1 .product-buy {
+  font-size: 15px;
+  align-self: flex-start;
+}
+body.shop-1 .product-text-block {
+  padding: 0;
+  max-width: 520px;
+}
+body.shop-1 .product-desc {
+  font-size: 26px;
+  line-height: 1.35;
+  margin: 0;
+}
+/* === SHOP-1 fine tune === */
+body.shop-1 .product-info { margin-left: auto; }
+body.shop-1 .product-header h1 { font-size: 34px; }
+/* === SHOP-1 tweak: bigger main frame + aligned thumbs === */
+body.shop-1 .product-image-big img {
+  width: 80% !important;
+  max-width: 80% !important;
+}
+body.shop-1 .product-thumbs {
+  width: 100% !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  justify-items: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+body.shop-1 .product-thumbs img {
+  max-width: 80% !important;
+}
+/* === SHOP-1 tweak: +20% main frame and aligned thumbs === */
+body.shop-1 .product-image-big img {
+  width: 90% !important;
+  max-width: 90% !important;
+}
+body.shop-1 .product-thumbs {
+  width: 100% !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  justify-items: center;
+}
+body.shop-1 .product-thumbs img {
+  max-width: 90% !important;
+}
+/* === SHOP detail layout unified (shop-1 to shop-6) === */
+body.shop-1 .product-main,
+body.shop-2 .product-main,
+body.shop-3 .product-main,
+body.shop-4 .product-main,
+body.shop-5 .product-main,
+body.shop-6 .product-main {
+  grid-template-columns: 2fr 1.05fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+body.shop-1 .product-left,
+body.shop-2 .product-left,
+body.shop-3 .product-left,
+body.shop-4 .product-left,
+body.shop-5 .product-left,
+body.shop-6 .product-left {
+  align-items: center;
+}
+body.shop-1 .product-image-big,
+body.shop-2 .product-image-big,
+body.shop-3 .product-image-big,
+body.shop-4 .product-image-big,
+body.shop-5 .product-image-big,
+body.shop-6 .product-image-big {
+  padding: 32px 20px;
+}
+body.shop-1 .product-image-big img,
+body.shop-2 .product-image-big img,
+body.shop-3 .product-image-big img,
+body.shop-4 .product-image-big img,
+body.shop-5 .product-image-big img,
+body.shop-6 .product-image-big img {
+  width: 90% !important;
+  max-width: 90% !important;
+  height: auto;
+  margin: 0 auto;
+}
+body.shop-1 .product-thumbs,
+body.shop-2 .product-thumbs,
+body.shop-3 .product-thumbs,
+body.shop-4 .product-thumbs,
+body.shop-5 .product-thumbs,
+body.shop-6 .product-thumbs {
+  padding: 10px 0 0;
+  gap: 10px;
+  width: 100% !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  justify-items: center;
+}
+body.shop-1 .product-thumbs img,
+body.shop-2 .product-thumbs img,
+body.shop-3 .product-thumbs img,
+body.shop-4 .product-thumbs img,
+body.shop-5 .product-thumbs img,
+body.shop-6 .product-thumbs img {
+  max-width: 90% !important;
+  margin: 0 auto;
+}
+body.shop-1 .product-info,
+body.shop-2 .product-info,
+body.shop-3 .product-info,
+body.shop-4 .product-info,
+body.shop-5 .product-info,
+body.shop-6 .product-info {
+  align-self: flex-start;
+  text-align: left;
+  gap: 18px;
+  padding-top: 8px;
+  max-width: 520px;
+  margin-left: auto;
+}
+body.shop-1 .product-header,
+body.shop-2 .product-header,
+body.shop-3 .product-header,
+body.shop-4 .product-header,
+body.shop-5 .product-header,
+body.shop-6 .product-header {
+  align-items: flex-start;
+  gap: 10px;
+}
+body.shop-1 .product-header h1,
+body.shop-2 .product-header h1,
+body.shop-3 .product-header h1,
+body.shop-4 .product-header h1,
+body.shop-5 .product-header h1,
+body.shop-6 .product-header h1 {
+  font-size: 34px;
+  margin: 0;
+  text-align: left;
+}
+body.shop-1 .product-price,
+body.shop-2 .product-price,
+body.shop-3 .product-price,
+body.shop-4 .product-price,
+body.shop-5 .product-price,
+body.shop-6 .product-price {
+  font-size: 32px;
+  margin: 0 0 6px 0;
+}
+body.shop-1 .product-buy,
+body.shop-2 .product-buy,
+body.shop-3 .product-buy,
+body.shop-4 .product-buy,
+body.shop-5 .product-buy,
+body.shop-6 .product-buy {
+  font-size: 15px;
+  align-self: flex-start;
+}
+body.shop-1 .product-text-block,
+body.shop-2 .product-text-block,
+body.shop-3 .product-text-block,
+body.shop-4 .product-text-block,
+body.shop-5 .product-text-block,
+body.shop-6 .product-text-block {
+  padding: 0;
+  max-width: 520px;
+}
+body.shop-1 .product-desc,
+body.shop-2 .product-desc,
+body.shop-3 .product-desc,
+body.shop-4 .product-desc,
+body.shop-5 .product-desc,
+body.shop-6 .product-desc {
+  font-size: 26px;
+  line-height: 1.35;
+  margin: 0;
 }
